@@ -18,7 +18,7 @@ export const load = (email: string, password: string): User =>
     }).then(result => resolve(result));
   });
 
-export const save = (user: User) => {
+export const save = (user: User): boolean => {
   execute({
     query: 'QUERY USER',
     params: {
