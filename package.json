@@ -1,0 +1,50 @@
+{
+  "name": "one-task-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "babel-node index.js",
+    "dev": "nodemon index.js --watch src --exec babel-node",
+    "lint": "eslint src",
+    "flow": "flow"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://mayantigo@bitbucket.org/mayantigo/one-task-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/mayantigo/one-task-back#readme",
+  "dependencies": {
+    "apollo-server-restify": "^1.0.5",
+    "babel-cli": "6.23.0",
+    "babel-core": "6.24.1",
+    "babel-preset-es2015": "6.24.0",
+    "babel-preset-react": "6.24.1",
+    "babel-preset-stage-2": "6.22.0",
+    "graphql": "^0.10.5",
+    "graphql-tools": "^1.1.0",
+    "jsonwebtoken": "^7.4.2",
+    "lodash": "^4.17.4",
+    "neo4j-driver": "^1.4.0",
+    "restify": "^5.0.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "14.1.0",
+    "eslint-plugin-babel": "4.1.1",
+    "eslint-plugin-import": "2.2.0",
+    "eslint-plugin-jsx-a11y": "4.0.0",
+    "eslint-plugin-react": "7.0.0",
+    "flow-bin": "^0.52.0",
+    "istanbul": "^0.4.5",
+    "jest": "^20.0.0",
+    "mocha": "^3.5.0",
+    "nodemon": "1.11.0"
+  }
+}
