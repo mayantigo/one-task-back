@@ -6,10 +6,11 @@ export const load = (email: string, password: string): User =>
   new Promise((resolve) => {
     execute({
       query: `MATCH (n:User {
-              email: {email},
-              password: {password} 
-            }) 
-            RETURN n;`,
+                email: {email},
+                password: {password} 
+              }) 
+              RETURN n;
+             `,
       params: {
         email,
         password,
