@@ -11,13 +11,13 @@ const execute = (query: Query) =>
         'b.3OryNvc8178m.lnIxHL1IHdGTyr1l',
       ),
     ).session();
-    session
-      .run(query.query, query.params)
-      .then((result) => {
+    session.run(
+        query.query,
+        query.params,
+      ).then((result) => {
         session.close();
         resolve(result);
-      })
-      .catch(err =>
+      }).catch(err =>
         error(err),
       );
   });
