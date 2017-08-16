@@ -23,4 +23,4 @@ server.get('/api', graphqlRestify(graphQLOptions));
 server.get('/graph', graphiqlRestify({
   endpointURL: '/api',
 }));
-server.listen(PORT, () => console.log(`Listening on ${PORT}`));
+server.listen(process.env.PORT || 3001, () => console.log(`Listening on ${PORT}`));
