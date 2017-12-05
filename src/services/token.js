@@ -1,9 +1,9 @@
 // @flow
-import { sign, verify, decode } from 'jsonwebtoken';
-import type User from '../types/user';
+import { decode, sign, verify } from 'jsonwebtoken';
+import type User from '../model/user';
 
-export const generate = (user: User) => sign(user, 'secreto');
-export const validate = (token: string) => {
+export const generate = (user: User): string => sign(user, 'secreto');
+export const validate = (token: string): boolean => {
   try {
     verify(token);
     return true;

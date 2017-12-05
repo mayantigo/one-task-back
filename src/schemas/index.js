@@ -4,12 +4,10 @@ import query from './query';
 import mutation from './mutation';
 import viewer from './viewer';
 
-const types = [
+export default [
   schema,
   user,
   query,
   mutation,
   viewer,
 ];
-
-export default types;

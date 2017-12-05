@@ -1,9 +1,8 @@
 // @flow
 import { v1 } from 'neo4j-driver';
-import type { Query } from './src/types/query';
 
-const execute = (query: Query) =>
-  new Promise((resolve, error) => {
+export default async function execute(query: string): v1.Result {
+  try {
     const session = v1.driver(
       'bolt://hobby-fabolppnojekgbkefniehopl.dbs.graphenedb.com:24786',
       v1.auth.basic(
@@ -11,15 +10,13 @@ const execute = (query: Query) =>
         'b.3OryNvc8178m.lnIxHL1IHdGTyr1l',
       ),
     ).session();
-    session.run(
-        query.query,
-        query.params,
-      ).then((result) => {
-        session.close();
-        resolve(result);
-      }).catch(err =>
-        error(err),
-      );
-  });
-
-export default execute;
+    const result: v1.Result = await session.run(
+      query,
+      null,
+    );
+    session.close();
+    return result;
+  } catch (e) {
+    return null;
+  }
+}

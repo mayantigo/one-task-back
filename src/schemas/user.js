@@ -1,4 +1,4 @@
-const user = `
+export default `
   type UserOutput {
     user: User
     error: String
@@ -14,4 +14,3 @@ const user = `
     password: String
   }
 `;
-export default user;

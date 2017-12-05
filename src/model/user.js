@@ -1,29 +1,29 @@
 /* @flow */
 import execute from '../../db';
-import type User from '../types/user';
 
-export const load = (email: string, password: string): User =>
-  new Promise((resolve) => {
-    execute({
-      query: `MATCH (n:User {
-                email: {email},
-                password: {password} 
-              }) 
-              RETURN n;
-             `,
-      params: {
-        email,
-        password,
-      },
-    }).then(result => resolve(result));
-  });
+export default class User {
+  id: string;
+  email: string;
+  password: string;
+  constructor({ id, email, password }: { id: string, email: string, password: string }) {
+    this.id = id;
+    this.email = email;
+    this.password = password;
+  }
 
-export const save = (user: User): boolean => {
-  execute({
-    query: 'QUERY USER',
-    params: {
-      email: user.email,
-      password: user.password,
-    },
-  }).then(() => true);
-};
+  static async load(
+    email: string,
+    password: string,
+  ): Promise<User> {
+    try {
+      return await execute(`MATCH (n:User {
+              email: ${email},
+              password: ${password} 
+            }) 
+            RETURN n;
+    `);
+    } catch (e) {
+      throw new Error();
+    }
+  }
+}

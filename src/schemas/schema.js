@@ -1,8 +1,6 @@
-const schema = `
+export default `
   schema {
     query: Query
     mutation: Mutation
   }
 `;
-
-export default schema;

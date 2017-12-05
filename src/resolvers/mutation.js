@@ -3,14 +3,16 @@ import { generate } from '../services/token';
 
 const mutation = {
   Mutation: {
-    login(root, args) {
-      load(
-        args.email,
-        args.password,
-      ).then((result) => {
-        console.log(result);
+    async login(root, args) {
+      try {
+        const result = await load(
+          args.email,
+          args.password,
+        );
         return generate(result);
-      }).catch(error => console.log(error));
+      } catch (e) {
+        return null;
+      }
     },
   },
 };

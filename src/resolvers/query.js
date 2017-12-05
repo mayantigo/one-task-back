@@ -1,7 +1,7 @@
 import { load } from '../model/user';
 import { validate } from '../services/token';
 
-const query = {
+export default {
   Query: {
     viewer(root, params) {
       return {
@@ -23,4 +23,3 @@ const query = {
     },
   },
 };
-export default query;
